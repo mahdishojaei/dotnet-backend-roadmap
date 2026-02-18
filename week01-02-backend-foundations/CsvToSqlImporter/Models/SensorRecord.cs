@@ -11,10 +11,10 @@ namespace CsvToSqlImporter.Models
         public int Id { get; set; }
         public DateTime Timestamp { get; set; }
 
-        //public double Temperature { get; set; }
         public double Temp { get; set; }
         public double Humidity { get; set; }
-        public double Gas { get; set; }
         public string DeviceId { get; set; }
+
+        
     }
 }

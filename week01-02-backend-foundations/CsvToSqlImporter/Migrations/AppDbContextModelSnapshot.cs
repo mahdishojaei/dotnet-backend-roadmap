@@ -34,9 +34,6 @@ namespace CsvToSqlImporter.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Gas")
-                        .HasColumnType("float");
-
                     b.Property<double>("Humidity")
                         .HasColumnType("float");
 

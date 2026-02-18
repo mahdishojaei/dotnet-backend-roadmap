@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CsvToSqlImporter.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,7 +18,7 @@ namespace CsvToSqlImporter.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Timestamp = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Temperature = table.Column<double>(type: "float", nullable: false),
+                    Temp = table.Column<double>(type: "float", nullable: false),
                     Humidity = table.Column<double>(type: "float", nullable: false),
                     DeviceId = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
