@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CsvToSqlImporter.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260201130005_AddHumidity")]
-    partial class AddHumidity
+    [Migration("20260218160147_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,13 +37,10 @@ namespace CsvToSqlImporter.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Gas")
-                        .HasColumnType("float");
-
                     b.Property<double>("Humidity")
                         .HasColumnType("float");
 
-                    b.Property<double>("Temperature")
+                    b.Property<double>("Temp")
                         .HasColumnType("float");
 
                     b.Property<DateTime>("Timestamp")

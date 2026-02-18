@@ -9,32 +9,10 @@ namespace CsvToSqlImporter.Data
     {
         public DbSet<SensorRecord> SensorRecords { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+           : base(options)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                // خواندن از appsettings.json
-                var configuration = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json", optional: false)
-                    .Build();
-
-                var connectionString = configuration.GetConnectionString("DefaultConnection");
-                optionsBuilder.UseSqlServer(connectionString);
-            }
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            // تنظیمات اضافی برای مدل‌ها
-            modelBuilder.Entity<SensorRecord>()
-                .HasKey(s => s.Id);
-
-            modelBuilder.Entity<SensorRecord>()
-                .Property(s => s.Timestamp)
-                .IsRequired();
-        }
     }
 }
